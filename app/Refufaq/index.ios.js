@@ -12,6 +12,9 @@ import {
   View
 } from 'react-native';
 
+import Header from './app/components/header.js'
+import QuestionAnswerList from './app/components/questionAnswerList.js'
+
 class RefuFaq extends Component {
   render() {
     return (
@@ -20,60 +23,10 @@ class RefuFaq extends Component {
           <Header></Header>
         </View>
         <View style={styles.body}>
-          <QuestionList></QuestionList>
+          <QuestionAnswerList></QuestionAnswerList>
         </View>
       </View>
     );
-  }
-}
-
-class Header extends Component {
-  render() {
-    return (
-      <View>
-        <Text> RefuFAQ</Text>
-      </View>
-    )
-  }
-}
-
-class QuestionList extends Component {
-  render() {
-    return (
-      <View>
-        <QuestionAndAnswer question="This is a question" answer="ANSWER"></QuestionAndAnswer>
-      </View>
-    )
-  }
-}
-
-class QuestionAndAnswer extends Component {
-  render() {
-    return (
-      <View>
-        <Question question={this.props.question}></Question>
-        <Answer answer={this.props.answer}></Answer>
-      </View>
-    )
-  }
-}
-class Question extends Component {
-  render() {
-    return (
-      <View>
-        <Text> {this.props.question} </Text>
-      </View>
-    )
-  }
-}
-
-class Answer extends Component {
-  render() {
-    return (
-      <View>
-        <Text> {this.props.answer} </Text>
-      </View>
-    )
   }
 }
 
