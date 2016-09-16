@@ -9,7 +9,7 @@
     "database": "zurich-hack-refugee",
     "username": "test",
     "password": "123",
-    "name": "MongoDs",
+    "name": "mongoD",
     "connector": "mongodb"
   }
 }
