@@ -8,7 +8,11 @@
   "properties": {},
   "validations": [],
   "relations": {
-    
+    "groups": {
+      "type": "hasOne",
+      "model": "Group",
+      "foreignKey": ""
+    }
   },
   "acls": [],
   "methods": {}
