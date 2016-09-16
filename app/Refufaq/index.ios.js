@@ -16,9 +16,24 @@ class RefuFaq extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <QuestionList></QuestionList>
+        <View style={styles.header}>
+          <Header></Header>
+        </View>
+        <View style={styles.body}>
+          <QuestionList></QuestionList>
+        </View>
       </View>
     );
+  }
+}
+
+class Header extends Component {
+  render() {
+    return (
+      <View>
+        <Text> RefuFAQ</Text>
+      </View>
+    )
   }
 }
 
@@ -65,19 +80,15 @@ class Answer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    alignItems: 'center',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  header: {
+    marginTop: 20,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  body: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });
 
