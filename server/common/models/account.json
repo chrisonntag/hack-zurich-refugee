@@ -12,6 +12,11 @@
       "type": "hasOne",
       "model": "Group",
       "foreignKey": ""
+    },
+    "questions": {
+      "type": "hasMany",
+      "model": "Question",
+      "foreignKey": ""
     }
   },
   "acls": [],
