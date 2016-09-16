@@ -7,7 +7,7 @@
 
 - Translatable copy
 
-## Volenteer (MVP)
+## Volunteer (MVP)
 - Login
 - See a list of unanswered questions
 - be able to answer questions
