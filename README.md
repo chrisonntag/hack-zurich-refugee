@@ -1,13 +1,18 @@
 # hack-zurich-refugee
 
-## Refugee (MVP)
-- Answer 'x' standard questions to get into app
-- Ask question and receive answer
-- Lists recent questions
+## Setting up and running the server
+
+
+Navigate into the server folder and install all node modules using
+`npm i`
+To run server use
+`node server server.js`
 
 - Translatable copy
 
-## Volunteer (MVP)
+## Front end
+
+### Volunteer (MVP)
 - Login
 - See a list of unanswered questions
 - be able to answer questions
@@ -17,7 +22,7 @@
 	- by demographic
 
 
-## To run react native
+### To run react native
 brew install node
 brew install watchman
 npm install -g react-native-cli

@@ -25,5 +25,21 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Refugee": {
+    "dataSource": "mongoD",
+    "public": true
+  },
+  "Account": {
+    "dataSource": "mongoD",
+    "public": true
+  },
+  "Group": {
+    "dataSource": "mongoD",
+    "public": true
+  },
+  "Question": {
+    "dataSource": "mongoD",
+    "public": true
   }
 }
