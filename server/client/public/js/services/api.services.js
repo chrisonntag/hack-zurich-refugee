@@ -79,7 +79,7 @@ angular
 
 		function latestQuestions(cb) {
 			groupId = JSON.parse(localStorage.getItem("refufaq_user_details")).group
-			var filter = '{"limit": "10", "where":{"groupId": {"inq": [' + groupId.toString() + ']}}}';
+			var filter = '{"limit": "10", "where":{"groupId": ' + groupId.toString() + '}}';
 			console.log(filter)
 
 			$http.get(baseUrl + '/Questions' + '?filter=' + filter)
