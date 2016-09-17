@@ -1,7 +1,13 @@
-h2 Recent questions
-div(ng-repeat='result in results')
-	h3
-		{{result.question}}
-	//- CURRENTLY THERE IS NO FILTER SAYING SOLUTION CAN"T BE NIL"
-	p
-		{{result.solution}}
+.container#list-view
+	center
+		h2 Recent questions
+
+	.content-container
+		.content(ng-if='requestCompleted && results.length < 1')
+			No recent questions at this time :(
+		.col-xs-12.content(ng-repeat='result in results')
+			.row(style="padding-left: 10px; padding-right: 10px;")
+				p.question {{result.question}}
+			//- CURRENTLY THERE IS NO FILTER SAYING SOLUTION CAN"T BE NIL"
+			.row(style="padding-left: 10px; padding-right: 10px;")
+				p.solution {{result.solution}}
