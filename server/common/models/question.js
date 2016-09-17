@@ -12,12 +12,14 @@ module.exports = function(Question) {
 			var input = {"question": translation.translatedText}
 			
 			Question.ask(input, function(err, result) {
-
-				googleTranslate.translate(result.solution, sourceLanguage, function(err, translation) {
-					result.translated_solution = translation.translatedText;
-					cb(null, result);	
-				})
-				
+				if (result.solution) {
+					googleTranslate.translate(result.solution, sourceLanguage, function(err, translation) {
+						result.translated_solution = translation.translatedText;
+						cb(null, result);
+					})
+				} else {
+					cb(null, {"result": "question asked no reply"})
+				}
 			});
 		});
 	};
