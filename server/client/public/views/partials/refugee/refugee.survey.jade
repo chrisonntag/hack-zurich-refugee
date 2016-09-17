@@ -1,0 +1,17 @@
+h1 Survey
+
+select.form-control(ng-model='survey.age', name='ageSelect')
+	option(value='<18') < 18
+	option(value='18-5') 18 - 25
+	option(value='25-35') 25 - 35
+	option(value='35+') 35+
+
+select.form-control(ng-model='survey.gender', name='genderSelect')
+	option(value='male') Male
+	option(value='female') Female
+
+select.form-control(ng-model='survey.group', name='groupSelect')
+	option(value='munich') Munich
+	option(value='berlin') Berlin
+
+button.btn.btn-success(ng-click='submitSurvey()') Submit

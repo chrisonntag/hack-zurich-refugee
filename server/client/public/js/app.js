@@ -30,14 +30,35 @@ angular
 				controller: 'answerQuestionsController as ansQuestCtrl'
 			})
 
-			.state('question', {
-				url: '/question',
-				templateUrl: '/partials/refugee/question.jade'
-				// controller: 'homeController as homeCtrl',
-			});
+      .state('refugee', {
+        url: '/refugee',
+				abstract: true,
+        templateUrl: '/partials/refugee/refugee.jade',
+        controller: 'refugeeController',
+      })
+			.state('refugee.survey', {
+				url: '/survey',
+				templateUrl: '/partials/refugee/refugee.survey.jade',
+				controller: 'surveyController',
+			})
+      .state('refugee.portal', {
+        url: '/portal',
+        templateUrl: '/partials/refugee/refugee.portal.jade',
+      })
+			.state('refugee.portal.ask', {
+				url: '/ask',
+				templateUrl: '/partials/refugee/refugee.portal.ask.jade',
+				controller: 'askController',
+			})
+			.state('refugee.portal.list', {
+				url: '/list',
+				templateUrl: '/partials/refugee/refugee.portal.list.jade',
+				controller: 'listController',
+			})
+      ;
 
 		$urlRouterProvider.otherwise('home');
-		
+
 	}])
 	.run(['$rootScope', '$state', function($rootScope, $state) {
 
