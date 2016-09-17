@@ -5,7 +5,23 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "algoliaId": {
+      "type": "string",
+      "required": true
+    },
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "solution": {
+      "type": "string",
+      "required": false
+    }
+  },
   "validations": [],
   "relations": {},
   "acls": [],
