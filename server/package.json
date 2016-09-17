@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "pretest": "jshint ."
+    "pretest": "jshint .",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "build-css": "node-sass --include-path scss client/sass/css/styles.scss client/public/css/styles.css"
   },
   "dependencies": {
     "algoliasearch": "^3.18.1",

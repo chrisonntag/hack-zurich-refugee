@@ -1,0 +1,30 @@
+#splash {
+  height: 100vh;
+  background-image: url("/img/splash.png");
+  background-size: cover; }
+  #splash #title {
+    margin-top: 35vh; }
+    #splash #title h1 {
+      font-size: 60px; }
+  #splash .login-btn {
+    position: fixed;
+    left: 40vw;
+    bottom: 5vh;
+    color: white; }
+  #splash #options {
+    padding-top: 35px; }
+
+body {
+  color: white;
+  font-family: ".SFNSDisplay-Ultralight"; }
+  body .font-light {
+    font-weight: Ultralight; }
+  body .button {
+    height: 50px;
+    width: 150px;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-image: url("/img/buttonBackground.png");
+    background-size: cover;
+    color: white; }

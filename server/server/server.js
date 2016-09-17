@@ -24,11 +24,11 @@ app.set('view engine', 'jade');
 
 sass.render({
   file:  __dirname + '/../client/sass/css/styles.scss',
-  outFile: __dirname + '/../client/css/styles.css',
+  outFile: __dirname + '/../client/public/css/styles.css',
   outputStyle: 'compressed'
 }, function(err, result) {
     if(!err){
-      fs.writeFile(__dirname + '/../client/css/styles.css', result.css, function(err){
+      fs.writeFile(__dirname + '/../client/public/css/styles.css', result.css, function(err){
           console.log("writting sass...");
         if(!err){
           console.log("sass done");
