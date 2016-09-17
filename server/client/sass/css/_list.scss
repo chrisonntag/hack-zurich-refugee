@@ -1,0 +1,25 @@
+#list-view {
+	.content-container {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+
+	.content {
+		background-image: url("/img/viewBackground.png");
+		background-size: cover;
+		margin-bottom: 5px;
+
+		.time-asked {
+			font-size: 10px;
+			float:right;
+		}
+
+		.question {
+			font-size: 20px;
+		}
+
+		.solution {
+			font-size: 15px;
+		}
+	}
+}

@@ -5,6 +5,7 @@ angular
 
 		assignResultsToScope = function(data, status, headers, config) {
 			$scope.results = data
+			console.log($scope.results)
 		}
 
 		api.latestQuestions(assignResultsToScope)
