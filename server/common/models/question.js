@@ -7,6 +7,8 @@ var index = client.initIndex('refugee_questions');
 module.exports = function(Question) {
 
 	Question.askInDifferentLanguage = function(data, cb) {
+		var original_question = data.question;
+
 		googleTranslate.translate(data.question, 'en', function(err, translation) {
 			var sourceLanguage = translation.detectedSourceLanguage;
 			var input = {"question": translation.translatedText, "groupId": data.groupId}
@@ -15,6 +17,7 @@ module.exports = function(Question) {
 				if (result.solution) {
 					googleTranslate.translate(result.solution, sourceLanguage, function(err, translation) {
 						result.translated_solution = translation.translatedText;
+						result.original_question = original_question;
 						cb(null, result);
 					})
 				} else {
