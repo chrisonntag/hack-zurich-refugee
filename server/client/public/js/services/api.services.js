@@ -87,11 +87,22 @@ angular
 			});
 		}
 
+		function allGroups(cb) {
+			$http.get(baseUrl + '/Groups')
+			.success(function(data, status, headers, config) {
+				cb(data, status, headers, config);
+			}).
+			error(function(data, status, headers, config) {
+				cb(data, status, headers, config);
+			});
+		}
+
 		return {
 			login: login,
 			askQuestion:askQuestion,
 			getCampAndUnansweredQuestions:getCampAndUnansweredQuestions,
 			answerQuestion:answerQuestion,
 			latestQuestions: latestQuestions,
+			allGroups: allGroups
 		};
 	}]);
