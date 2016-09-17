@@ -1,7 +1,7 @@
 angular
 	.module('app')
-  .controller('refugeeController', function($scope, $rootScope, $state, api) {
-		if(!localStorage.hasOwnProperty("refufaq_user_details")) {
+  .controller('refugeeController', function($scope, $rootScope, $state, api, surveyService) {
+		if(!surveyService.getSurvey().hasOwnProperty("group")) {
 			$state.go('refugee.survey');
 		}
   })
