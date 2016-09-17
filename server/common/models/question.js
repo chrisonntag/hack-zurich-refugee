@@ -37,6 +37,13 @@ module.exports = function(Question) {
 	
 	Question.ask = function(data, cb) {
 		var question = data.question;
+		var groupId = data.groupId;
+
+		if (!question || !groupId) {
+			cb(null, {"result": "missing fields"})
+			return
+		}
+		
 
 		index.search(question, function(err, results) {
 			if (results.hits[0]) {
@@ -51,7 +58,8 @@ module.exports = function(Question) {
 				
 			} else {
 				// create in algo and create question
-				var data = [{"question": question}];
+				var data = [
+				{"question": question}];
 
 				index.addObjects(data, function(err, content) {
 
@@ -59,6 +67,7 @@ module.exports = function(Question) {
 						cb(null, {"result": "err adding object"})
 					} else {
 						data[0].algoliaId = content.objectIDs[0];
+						data[0].groupId = groupId
 						
 						Question.create(data[0], function(err, q) {
 							cb(null, {"result": "question added"});
