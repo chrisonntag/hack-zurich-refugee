@@ -1,6 +1,6 @@
 angular
 	.module('app')
-		.controller('answerQuestionsController', ['$scope', '$rootScope', '$stateParams', 'api', 'questionService',function($scope, $rootScope, $stateParams, api, questionService) {
+		.controller('answerQuestionsController', ['$scope', '$rootScope', '$state', '$stateParams', 'api', 'questionService',function($scope, $rootScope, $state, $stateParams, api, questionService) {
 			var question = questionService.getQuestion();
 			$scope.question = question;
 
