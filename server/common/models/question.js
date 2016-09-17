@@ -29,7 +29,7 @@ module.exports = function(Question) {
 				{ arg: 'data', type: 'object', http: { source: 'body' } }
       		],
 			http: {path: '/ask/lang', verb: 'post'},
-			returns: [{arg: 'msg', type: 'object'}]
+			returns: [{arg: 'data', type: 'object'}]
 		}
 	);
 	
@@ -74,7 +74,7 @@ module.exports = function(Question) {
 				{ arg: 'data', type: 'object', http: { source: 'body' } }
       		],
 			http: {path: '/ask', verb: 'post'},
-			returns: [{arg: 'msg', type: 'object'}]
+			returns: [{arg: 'data', type: 'object'}]
 		}
 	);
 
@@ -116,7 +116,7 @@ module.exports = function(Question) {
 				{ arg: 'data', type: 'object', http: { source: 'body' } }
       		],
 			http: {path: '/:id/answer', verb: 'post'},
-			returns: [{arg: 'msg', type: 'object'}]
+			returns: [{arg: 'data', type: 'object'}]
 		}
 	);
 };
