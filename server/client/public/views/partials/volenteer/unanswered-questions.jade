@@ -7,7 +7,7 @@
 
 	.content-container
 		//- p(ng-if="requestCompleted") All questions have been answered!
-		.col-xs-12.content(ng-repeat="question in group.questions", ng-show="question.solution === ''")
+		.col-xs-12.content(ng-repeat="question in group.questions", ng-show="question.solution === '' || !question.solution")
 			.row
 				p.time-asked(style="padding-right:3px; padding-top: 3px;") Last asked: 17th September 2016
 			.row(style="padding-left: 10px; padding-right: 10px;")
