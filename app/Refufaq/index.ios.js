@@ -34,6 +34,7 @@ class RefuFaq extends Component {
       }
     })
     .then((response) => {
+      // we have seen this device before
       this.setState({
         knownUser: true
       })
