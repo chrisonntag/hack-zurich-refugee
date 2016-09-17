@@ -2,5 +2,32 @@
 	height: 100vh;
 	background-image: linear-gradient(-130deg, #4DA0B0 0%, #D39D38 100%);
 	background-size: cover;
+}
+
+#refugee-ask {
+	padding-top: 30px;
+
+	input {
+		width: 100%;
+		font-size: 25px;
+		background: transparent;
+		width: 100%;
+		color: white;
+		height: 25px;
+		border-style: solid;
+		border-width: 0px 0px 1px 0px;
+		margin-bottom: 15px;
+		border-color: white;
 	}
 
+	input:focus {
+		outline-width: 0;
+	}
+
+	.button {
+		float:right;
+		height: 30px;
+		width: 100px;
+		padding-top: 7px;
+	}
+}
