@@ -6,50 +6,55 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+  View,
+  AppRegistry
 } from 'react-native';
 
-import Header from './app/components/header.js'
-import QuestionAsker from './app/components/questionAsker.js'
-import QuestionAnswerList from './app/components/questionAnswerList.js'
+var DeviceInfo = require('react-native-device-info');
 
-let questionsAndAnswers = [
-  {id: 1, question: "question 1", answer: "Answer!"},
-  {id: 2, question: "question 2", answer: "A!"}
-]
+import MainScreen from './app/components/main.js'
+import SurveyScreen from './app/components/survey.js'
+
+//will change if all apps from the current apps vendor have been previously uninstalled
+const DeviceID = DeviceInfo.getUniqueID();
+console.log('Users unique DeviceID is: ' + DeviceID);
 
 class RefuFaq extends Component {
+
+  state = {
+    knownUser: true
+  }
+
+  _setKnownUserState = () => {
+    fetch('http://localhost:3000/Refugees/' + DeviceID, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) => {
+      this.setState({
+        knownUser: true
+      })
+    })
+  };
+
+  componentDidMount = () => {
+    this._setKnownUserState()
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Header></Header>
-        </View>
-        <View style={styles.body}>
-          <QuestionAsker></QuestionAsker>
-          <QuestionAnswerList list={questionsAndAnswers}></QuestionAnswerList>
-        </View>
+      <View>
+        { this.state.knownUser ?
+          <MainScreen />
+         :
+          <SurveyScreen />
+        }
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-    alignItems: 'center',
-  },
-  header: {
-    marginTop: 20,
-  },
-  body: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
 
 AppRegistry.registerComponent('RefuFaq', () => RefuFaq);

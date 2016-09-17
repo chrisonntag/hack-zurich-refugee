@@ -6,48 +6,64 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+  View,
+  AppRegistry
 } from 'react-native';
 
+var DeviceInfo = require('react-native-device-info');
+
+import MainScreen from './app/components/main.js'
+import SurveyScreen from './app/components/survey.js'
+
+//will change if all apps from the current apps vendor have been previously uninstalled
+const DeviceID = DeviceInfo.getUniqueID();
+console.log('Users unique DeviceID is: ' + DeviceID);
+
 class RefuFaq extends Component {
+
+  state = {
+    knownUser: true
+  }
+
+  _isKnownUser = () => {
+    fetch('http://localhost:3000/Refugees/' + DeviceID, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) => {
+      if (response.json().status === 200) {
+        //it's a known user
+        return true
+      } else {
+        //the user is starting the app for the first time
+        return false
+      }
+    })
+    .then((response) => console.log(response))
+  };
+
+  componentDidMount = () => {
+    if (!this._isKnownUser()) {
+      this.setState({
+        knownUser: false
+      })
+    }
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+      <View>
+        { this.state.knownUser ?
+          <MainScreen />
+         :
+          <SurveyScreen />
+        }
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('RefuFaq', () => RefuFaq);
