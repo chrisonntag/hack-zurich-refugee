@@ -7,12 +7,13 @@
 import React, { Component } from 'react';
 import {
   View,
+  StyleSheet,
   AppRegistry
 } from 'react-native';
 
 var DeviceInfo = require('react-native-device-info');
 
-import MainScreen from './app/components/main.js'
+import MainScreen from './app/components/mainScreen.js'
 import SurveyScreen from './app/components/survey.js'
 
 //will change if all apps from the current apps vendor have been previously uninstalled
@@ -22,7 +23,7 @@ console.log('Users unique DeviceID is: ' + DeviceID);
 class RefuFaq extends Component {
 
   state = {
-    knownUser: true
+    knownUser: false
   }
 
   _setKnownUserState = () => {
@@ -47,7 +48,7 @@ class RefuFaq extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         { this.state.knownUser ?
           <MainScreen />
          :
@@ -59,3 +60,18 @@ class RefuFaq extends Component {
 }
 
 AppRegistry.registerComponent('RefuFaq', () => RefuFaq);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+    alignItems: 'center',
+  },
+  header: {
+    marginTop: 20,
+  },
+  body: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+});
