@@ -2,19 +2,6 @@ var algoliasearch = require('algoliasearch');
 var client = algoliasearch('LSDVSKQFDY', '493727bd884c9bf189b300df681b0d15');
 var index = client.initIndex('refugee_questions');
 
-// index.search('Missal', function(err, results) {
-//   if (err) {
-//     throw err;
-//   }
-
-//   console.log('We got `' + results.nbHits + '` results');
-//   console.log('Here is the first one: ', results.hits[0]);
-
-//   // call client.destroy() this when you need to stop the node.js client
-//   // it will release any keepalived connection
-//   client.destroy();
-// });
-
 module.exports = function(Question) {
 	
 	Question.ask = function(data, cb) {
@@ -22,7 +9,6 @@ module.exports = function(Question) {
 
 		index.search(question, function(err, results) {
 			if (results.hits[0]) {
-				console.log(results.hits[0].solution)
 				if (results.hits[0].solution == "\n") {
 					// solution available
 					cb(null, results.hits[0])	
@@ -36,8 +22,6 @@ module.exports = function(Question) {
 				var data = [{"question": question}];
 
 				index.addObjects(data, function(err, content) {
-					console.log(content);
-					console.log(err);
 
 					if (err) {
 						cb(null, {"result": "err adding object"})
@@ -45,9 +29,7 @@ module.exports = function(Question) {
 						data[0].algoliaId = content.objectIDs[0];
 						
 						Question.create(data[0], function(err, q) {
-							console.log(err);
-							console.log(q);
-							cb(null, {"result": "question added"})	
+							cb(null, {"result": "question added"});
 						})
 					}
 				});
@@ -62,6 +44,48 @@ module.exports = function(Question) {
 				{ arg: 'data', type: 'object', http: { source: 'body' } }
       		],
 			http: {path: '/ask', verb: 'post'},
+			returns: [{arg: 'msg', type: 'object'}]
+		}
+	);
+
+	Question.answer = function(id, data, cb) {
+		if (!data.solution) {
+			cb(null, {"result": "please provide solution"});
+		} else {
+			Question.findById(id, function(err, question) {
+				index.saveObject({
+					solution: data.solution,
+					question: question.question,
+					objectID: question.algoliaId
+				}, function(err, content) {
+					if (err) {
+						cb(null, {"result": "Error updating Algolia model."});
+					} else {
+						question.solution = data.solution;
+						question.save(function(err, q) {
+							if (err) {
+								cb(null, {"result": "Error updating api model."});
+							} else {
+								cb(null, {"result": "question answered."});
+							}
+							
+							
+						})
+					}
+				});
+				
+			})
+		}	
+	};
+
+	Question.remoteMethod(
+		'answer',
+		{
+			accepts: [
+				{ arg: 'id', type: 'string', http: { source: 'path' } },
+				{ arg: 'data', type: 'object', http: { source: 'body' } }
+      		],
+			http: {path: '/:id/answer', verb: 'post'},
 			returns: [{arg: 'msg', type: 'object'}]
 		}
 	);
