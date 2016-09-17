@@ -43,7 +43,20 @@ angular
 			});
 		}
 
+		function asQuestion(question) {
+			data = {question: question};
+
+			$http.post(baseUrl + '/Questions/ask/lang', data).
+			success(function(data, status, headers, config) {
+				cb(data, status, headers, config);
+			}).
+			error(function(data, status, headers, config) {
+				cb(data, status, headers, config);
+			});
+		}
+
 		return {
-			login: login
+			login: login,
+			asQuestion:asQuestion
 		};
 	}]);
