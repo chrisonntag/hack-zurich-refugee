@@ -18,6 +18,6 @@ angular
 
 		$scope.submitSurvey = function() {
 			localStorage.setItem("refufaq_user_details", JSON.stringify($scope.survey))
-			$state.go('refugee.portal.list')
+			$state.go('refugee.portal.ask')
 		}
   })
