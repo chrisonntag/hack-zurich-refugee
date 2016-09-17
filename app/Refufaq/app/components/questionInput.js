@@ -4,16 +4,21 @@ import {
   View
 } from 'react-native';
 
+let GLOBAL = require('../globals');
+
 export default class QuestionInput extends Component {
-  state = { text: 'Useless Placeholder' };
+  state = { question: 'Food' };
 
   _submitQuestion = () => {
-    fetch('https://api.myjson.com/bins/vfne', {
-      method: 'GET',
+    fetch(GLOBAL.URL + '/Questions/ask', {
+      method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-      }
+      },
+      body: JSON.stringify({
+        question: this.state.question
+      })
     })
     .then((response) => response.json())
     .then((response) => console.log(response))
@@ -24,9 +29,9 @@ export default class QuestionInput extends Component {
       <View>
         <TextInput
           style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(question) => this.setState({question})}
           onSubmitEditing={this._submitQuestion}
-          value={this.state.text}
+          value={this.state.question}
         />
       </View>
     )
