@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 
 import Header from './app/components/header.js'
-import QuestionInput from './app/components/questionInput.js'
+import QuestionAsker from './app/components/questionAsker.js'
 import QuestionAnswerList from './app/components/questionAnswerList.js'
 
 let questionsAndAnswers = [
@@ -29,7 +29,7 @@ class RefuFaq extends Component {
           <Header></Header>
         </View>
         <View style={styles.body}>
-          <QuestionInput></QuestionInput>
+          <QuestionAsker></QuestionAsker>
           <QuestionAnswerList list={questionsAndAnswers}></QuestionAnswerList>
         </View>
       </View>

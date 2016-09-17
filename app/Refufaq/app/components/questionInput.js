@@ -7,7 +7,7 @@ import {
 let GLOBAL = require('../globals');
 
 export default class QuestionInput extends Component {
-  state = { question: 'Food' };
+  state = { question: 'laundry' };
 
   _submitQuestion = () => {
     fetch(GLOBAL.URL + '/Questions/ask', {
@@ -21,7 +21,8 @@ export default class QuestionInput extends Component {
       })
     })
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then((response) => [{ id: response.data.objectID, question: response.data.question, answer: response.data.solution }])
+    .then((response) => this.props.handleNewAnswer(response))
   };
 
   render() {
