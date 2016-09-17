@@ -11,7 +11,6 @@ select.form-control(ng-model='survey.gender', name='genderSelect')
 	option(value='female') Female
 
 select.form-control(ng-model='survey.group', name='groupSelect')
-	option(value='munich') Munich
-	option(value='berlin') Berlin
+	option(ng-repeat='group in groups' value='{{group.id}}') {{group.name}}
 
 button.btn.btn-success(ng-click='submitSurvey()') Submit
