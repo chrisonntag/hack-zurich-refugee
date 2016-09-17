@@ -5,16 +5,19 @@ import {
 } from 'react-native';
 
 export default class QuestionInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: 'Useless Placeholder' };
-  }
+  state = { text: 'Useless Placeholder' };
+
+  _submitQuestion = () => {
+    console.log("WEEEEEEE")
+  };
+
   render() {
     return (
       <View>
         <TextInput
           style={{height: 40, borderColor: 'gray', borderWidth: 1}}
           onChangeText={(text) => this.setState({text})}
+          onSubmitEditing={this._submitQuestion}
           value={this.state.text}
         />
       </View>
