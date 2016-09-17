@@ -17,7 +17,7 @@ let questionsAndAnswers = [
 export default class MainScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <View style={styles.header}>
           <Header></Header>
         </View>
@@ -31,12 +31,8 @@ export default class MainScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-    alignItems: 'center',
-  },
   header: {
+    flex: 1,
     marginTop: 20,
   },
   body: {
