@@ -1,10 +1,11 @@
-.row
-	.col-md-12
-		h1 login
-	.col-md-8.col-md-offset-2
-		input(ng-model="user.username", placeholder="username", type="text").form-control
-		input(ng-model="user.password", placeholder="password", type="password").form-control
+.row#login
+	.col-md-12#title
+		center
+			h1 Login
+	.col-md-8.col-md-offset-2#input-section
+		input(ng-model="user.username", placeholder="username", type="text")
+		input(ng-model="user.password", placeholder="password", type="password")
 	.col-md-3.col-md-offset-7
-		button.btn.btn-primary(ng-click="login();") Login
+		button.button(ng-click="login();", style="width:100px; height:35px; float:right;") Login
 
-	a(ui-sref="home") back
+	a(ui-sref="home").back-btn back

@@ -14,11 +14,48 @@
   #splash #options {
     padding-top: 35px; }
 
+#login {
+  height: 100vh;
+  background-image: url("/img/splash.png");
+  background-size: cover; }
+  #login #title {
+    margin-top: 25vh; }
+    #login #title h1 {
+      font-size: 60px; }
+  #login #input-section {
+    margin-top: 10vh; }
+  #login .login-btn {
+    position: fixed;
+    left: 40vw;
+    bottom: 5vh;
+    color: white; }
+  #login #options {
+    padding-top: 35px; }
+  #login .back-btn {
+    position: fixed;
+    left: 40vw;
+    bottom: 5vh;
+    color: white; }
+
+button:focus {
+  outline: 0;
+  padding: 0;
+  border: none;
+  background: none; }
+
+button {
+  outline: 0;
+  padding: 0;
+  border: none;
+  background: none; }
+
 body {
   color: white;
   font-family: ".SFNSDisplay-Ultralight"; }
   body .font-light {
     font-weight: Ultralight; }
+  body button {
+    background: transparent; }
   body .button {
     height: 50px;
     width: 150px;
@@ -28,3 +65,16 @@ body {
     background-image: url("/img/buttonBackground.png");
     background-size: cover;
     color: white; }
+  body input {
+    width: 100%;
+    font-size: 15px;
+    background: transparent;
+    width: 100%;
+    color: white;
+    height: 25px;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    margin-bottom: 15px;
+    border-color: white; }
+  body input:focus {
+    outline-width: 0; }

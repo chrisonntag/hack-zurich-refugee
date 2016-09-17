@@ -1,9 +1,26 @@
+button:focus {
+  outline:0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+button {
+  outline:0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
 body {
 	color: white;
 	font-family: ".SFNSDisplay-Ultralight";
 
 	.font-light {
 		font-weight: Ultralight;
+	}
+
+	button {
+		background: transparent
 	}
 
 	.button {
@@ -17,4 +34,20 @@ body {
 		color: white;
 	}
 
+	input {
+		width: 100%;
+		font-size: 15px;
+		background: transparent;
+		width: 100%;
+		color: white;
+		height: 25px;
+		border-style: solid;
+		border-width: 0px 0px 1px 0px;
+		margin-bottom: 15px;
+		border-color: white;
+	}
+
+	input:focus {
+		outline-width: 0;
+	}
 }
