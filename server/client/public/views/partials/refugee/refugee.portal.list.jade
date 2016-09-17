@@ -1,0 +1,7 @@
+h2 Recent questions
+div(ng-repeat='result in results')
+	h3
+		{{result.question}}
+	//- CURRENTLY THERE IS NO FILTER SAYING SOLUTION CAN"T BE NIL"
+	p
+		{{result.solution}}

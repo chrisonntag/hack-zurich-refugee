@@ -41,7 +41,7 @@ angular
 			// }).
 			// error(function(data, status) {
 			// 	cb(data, status);
-			// });	
+			// });
 			console.log(baseUrl + '/Accounts/' + accountId + '?filter=' + filter + '&' + accessToken)
 			$http.get(baseUrl + '/Accounts/' + accountId + '?filter=' + filter + '&' + accessToken)
 			.success(function(data, status, headers, config) {
@@ -76,10 +76,22 @@ angular
 			});
 		}
 
+		function latestQuestions(cb) {
+			var filter = '{"limit": "10"}';
+			$http.get(baseUrl + '/Questions' + '?filter=' + filter)
+			.success(function(data, status, headers, config) {
+				cb(data, status, headers, config);
+			}).
+			error(function(data, status, headers, config) {
+				cb(data, status, headers, config);
+			});
+		}
+
 		return {
 			login: login,
 			askQuestion:askQuestion,
 			getCampAndUnansweredQuestions:getCampAndUnansweredQuestions,
-			answerQuestion:answerQuestion
+			answerQuestion:answerQuestion,
+			latestQuestions: latestQuestions,
 		};
 	}]);
