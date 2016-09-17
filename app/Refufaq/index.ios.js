@@ -11,51 +11,16 @@ import {
   AppRegistry
 } from 'react-native';
 
-var DeviceInfo = require('react-native-device-info');
 
-import MainScreen from './app/components/mainScreen.js'
-import SurveyScreen from './app/components/survey.js'
+import HomeScreen from './app/components/homeScreen.js'
 
-//will change if all apps from the current apps vendor have been previously uninstalled
-const DeviceID = DeviceInfo.getUniqueID();
-console.log('Users unique DeviceID is: ' + DeviceID);
 
 class RefuFaq extends Component {
-
-  state = {
-    screen: "survey"
-  }
-
-  _setKnownUserState = () => {
-    fetch('http://localhost:3000/Refugees/' + DeviceID, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-    .then((response) => {
-      // we have seen this device before
-      this.setState({
-        knownUser: "main"
-      })
-    })
-  };
-
-  componentDidMount = () => {
-    this._setKnownUserState()
-  }
 
   render() {
     return (
       <View style={styles.container}>
-        {(() => {
-          switch (this.state.color) {
-            case "main":   return <MainScreen />;
-            case "survey": return <SurveyScreen />;
-            default:       return <MainScreen />;
-          }
-        })()}
+        <HomeScreen />
       </View>
     );
   }
@@ -68,12 +33,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5FCFF',
     alignItems: 'center',
-  },
-  header: {
-    marginTop: 20,
-  },
-  body: {
-    flex: 1,
-    justifyContent: 'center',
   },
 });
