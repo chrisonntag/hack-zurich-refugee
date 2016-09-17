@@ -21,7 +21,13 @@ export default class QuestionInput extends Component {
       })
     })
     .then((response) => response.json())
-    .then((response) => [{ id: response.data.objectID, question: response.data.question, answer: response.data.solution }])
+    .then((response) => {
+      if(response.data.hasOwnProperty("solution")) {
+        return [{ id: response.data.objectID, question: response.data.question, answer: response.data.solution }]
+      } else {
+        return []
+      }
+    })
     .then((response) => this.props.handleNewAnswer(response))
   };
 
