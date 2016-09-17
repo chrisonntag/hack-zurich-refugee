@@ -14,5 +14,21 @@ module.exports = {
   Role: {
     "dataSource": "db",
     "public": true
+  },
+  "Refugee": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Account": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Group": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Question": {
+    "dataSource": "db",
+    "public": true
   }
 };
