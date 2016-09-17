@@ -9,7 +9,7 @@ module.exports = function(Question) {
 	Question.askInDifferentLanguage = function(data, cb) {
 		googleTranslate.translate(data.question, 'en', function(err, translation) {
 			var sourceLanguage = translation.detectedSourceLanguage;
-			var input = {"question": translation.translatedText}
+			var input = {"question": translation.translatedText, "groupId": data.groupId}
 			
 			Question.ask(input, function(err, result) {
 				if (result.solution) {
