@@ -1,6 +1,6 @@
 angular
 	.module('app')
-	.factory('api', ['$rootScope', '$http', '$q', '$state', function($rootScope, $http, $q, state) {
+	.factory('api', ['$rootScope', '$http', '$q', '$state', "surveyService", function($rootScope, $http, $q, state, surveyService) {
 
 		var baseUrl = "http://localhost:3000/api";
 
@@ -54,7 +54,7 @@ angular
 		}
 
 		function askQuestion(question, cb) {
-			groupId = JSON.parse(localStorage.getItem("refufaq_user_details")).group
+			groupId = surveyService.getSurvey().group
 			data = {question: question, groupId: groupId};
 
 			$http.post(baseUrl + '/Questions/ask/lang', data).
@@ -78,7 +78,8 @@ angular
 		}
 
 		function latestQuestions(cb) {
-			groupId = JSON.parse(localStorage.getItem("refufaq_user_details")).group
+			groupId = surveyService.getSurvey().group
+			console.log(groupId)
 			var filter = '{"limit": "10", "where":{"groupId": "' + groupId.toString() + '"}}';
 			console.log(filter)
 
