@@ -54,7 +54,8 @@ angular
 		}
 
 		function askQuestion(question, cb) {
-			data = {question: question};
+			groupId = JSON.parse(localStorage.getItem("refufaq_user_details")).group
+			data = {question: question, groupId: groupId};
 
 			$http.post(baseUrl + '/Questions/ask/lang', data).
 			success(function(data, status, headers, config) {
@@ -77,7 +78,10 @@ angular
 		}
 
 		function latestQuestions(cb) {
-			var filter = '{"limit": "10"}';
+			groupId = JSON.parse(localStorage.getItem("refufaq_user_details")).group
+			var filter = '{"limit": "10", "where":{"groupId": {"inq": [' + groupId + ']}}}';
+			console.log(filter)
+
 			$http.get(baseUrl + '/Questions' + '?filter=' + filter)
 			.success(function(data, status, headers, config) {
 				cb(data, status, headers, config);
