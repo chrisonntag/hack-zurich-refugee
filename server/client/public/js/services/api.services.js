@@ -43,7 +43,7 @@ angular
 			});
 		}
 
-		function asQuestion(question) {
+		function askQuestion(question) {
 			data = {question: question};
 
 			$http.post(baseUrl + '/Questions/ask/lang', data).
@@ -57,6 +57,6 @@ angular
 
 		return {
 			login: login,
-			asQuestion:asQuestion
+			askQuestion:askQuestion
 		};
 	}]);
