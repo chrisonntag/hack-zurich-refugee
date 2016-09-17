@@ -3,8 +3,9 @@
 		h2 Recent questions
 
 	.content-container
-		.content(ng-if='requestCompleted && results.length < 1')
-			No recent questions at this time :(
+		.col-xs-12.content(ng-if='requestCompleted && results.length < 1')
+			.row(style="padding-left: 10px; padding-right: 10px;")
+				No recent questions at this time :(
 		.col-xs-12.content(ng-repeat='result in results')
 			.row(style="padding-left: 10px; padding-right: 10px;")
 				p.question {{result.question}}
