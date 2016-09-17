@@ -8,12 +8,16 @@ module.exports = function(Question) {
 
 	Question.askInDifferentLanguage = function(data, cb) {
 		googleTranslate.translate(data.question, 'en', function(err, translation) {
+			var sourceLanguage = translation.detectedSourceLanguage;
 			var input = {"question": translation.translatedText}
-
-			console.log(input);
 			
 			Question.ask(input, function(err, result) {
-				cb(null, result);	
+
+				googleTranslate.translate(result.solution, sourceLanguage, function(err, translation) {
+					result.translated_solution = translation.translatedText;
+					cb(null, result);	
+				})
+				
 			});
 		});
 	};
