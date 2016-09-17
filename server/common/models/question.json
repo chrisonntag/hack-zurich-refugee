@@ -15,7 +15,8 @@
     },
     "question": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": ""
     },
     "solution": {
       "type": "string",

@@ -6,7 +6,7 @@
 		hr
 
 	.content-container
-		p(ng-if="requestCompleted") All questions have been answered!
+		//- p(ng-if="requestCompleted") All questions have been answered!
 		.col-xs-12.content(ng-repeat="question in group.questions", ng-show="question.solution === ''")
 			.row
 				p.time-asked(style="padding-right:3px; padding-top: 3px;") Last asked: 17th September 2016
