@@ -5,5 +5,7 @@
 				button.button.btn-sm(type='submit') Search
 
 			p(ng-if='result.hasOwnProperty("result")') No answer found to this question, we've sent it to a volunteer to answer
-			h3 {{result.translated_solution}}
-			p {{result.solution}}
+
+			h3 {{result.question}}
+			p {{result.translated_solution}}
+
