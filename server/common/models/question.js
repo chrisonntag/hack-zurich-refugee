@@ -9,7 +9,8 @@ module.exports = function(Question) {
 
 		index.search(question, function(err, results) {
 			if (results.hits[0]) {
-				if (results.hits[0].solution == "\n") {
+				console.log(results.hits[0]);
+				if (results.hits[0].solution) {
 					// solution available
 					cb(null, results.hits[0])	
 				} else {
