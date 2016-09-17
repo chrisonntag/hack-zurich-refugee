@@ -54,7 +54,8 @@ angular
 		}
 
 		function askQuestion(question, cb) {
-			data = {question: question};
+			groupId = JSON.parse(localStorage.getItem("refufaq_user_details")).group
+			data = {question: question, groupId: groupId};
 
 			$http.post(baseUrl + '/Questions/ask/lang', data).
 			success(function(data, status, headers, config) {
