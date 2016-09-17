@@ -5,7 +5,7 @@ angular
 
 			$scope.login = function() {
 				api.login($scope.user.username, $scope.user.password, function(data, status) {
-					$state.go('answer-questions')
+					$state.go('unanswered-questions')
 				});
 			}
 			

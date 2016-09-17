@@ -6,7 +6,7 @@ html(lang='en', ng-app='app')
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 
 		link(rel='stylesheet', href='/bower/bootstrap/dist/css/bootstrap.min.css')
-		link(rel='stylesheet', href='/css/styles.css')
+		//- link(rel='stylesheet', href='/css/styles.css')
 
 	body
 		.container
@@ -22,8 +22,10 @@ html(lang='en', ng-app='app')
 
 		script(src='js/app.js')
 		script(src='js/services/api.services.js')
+		script(src='js/services/question.services.js')
 
 		script(src='js/controllers/home.controller.js')
 		script(src='js/controllers/login.controller.js')
+		script(src='js/controllers/unansweredQuestion.controller.js')
 		script(src='js/controllers/answerQuestion.controller.js')
 

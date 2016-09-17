@@ -19,9 +19,14 @@ angular
 				templateUrl: '/partials/volenteer/login.jade',
 				controller: 'loginController as loginCtrl'
 			})
-			.state('answer-questions', {
-				url: '/group/answer-questions',
-				templateUrl: '/partials/volenteer/answer-questions.jade',
+			.state('unanswered-questions', {
+				url: '/group/unanswered-questions',
+				templateUrl: '/partials/volenteer/unanswered-questions.jade',
+				controller: 'unansweredQuestionsController as unansQuestCtrl'
+			})
+			.state('answer-question', {
+				url: '/group/answer-question',
+				templateUrl: '/partials/volenteer/answer-question.jade',
 				controller: 'answerQuestionsController as ansQuestCtrl'
 			})
 

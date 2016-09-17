@@ -1,0 +1,14 @@
+.row
+	.col-md-12
+		h3 Logged in for group {{group.name}}
+		hr
+.row
+	.col-md-12
+		h4 list of unanswered questions
+		hr
+	.col-md-8.col-md-offset-2(ng-repeat="question in group.questions", ng-show="question.solution === ''")
+		p {{question.question}}
+		p {{question.solution}}
+		button.btn.btn-primary(ng-click="answerQuestion(question)") answer question
+
+		

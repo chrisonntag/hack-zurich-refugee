@@ -1,0 +1,7 @@
+.row
+	.col-md-12
+		h2 answer-question
+		p {{question.question}}
+	.col-md-12
+		textarea(rows="25", ng-model="solution").form-control
+		button.btn.btn-primary(ng-click="submit()") Submit

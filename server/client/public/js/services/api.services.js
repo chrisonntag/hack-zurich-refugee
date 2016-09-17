@@ -32,18 +32,28 @@ angular
 			});
 		}
 
-		function getCampAndUnansweredQuestions() {
-			var filter = 
-			$http.post(baseUrl + '/Accounts?filter="' + filter, data).
-			success(function(data_login, status, headers, config) {
+		function getCampAndUnansweredQuestions(cb) {
+			var filter = '{"include":{"groups":"questions"}}';
 
+			// $http.get('http://test-api.pi-top.com/api/Classrooms?filter=' + filter + '&access_token=' + accessToken)
+			// .success(function(data, status) {
+			// 	cb(data, status);
+			// }).
+			// error(function(data, status) {
+			// 	cb(data, status);
+			// });	
+			console.log(baseUrl + '/Accounts/' + accountId + '?filter=' + filter + '&' + accessToken)
+			$http.get(baseUrl + '/Accounts/' + accountId + '?filter=' + filter + '&' + accessToken)
+			.success(function(data, status, headers, config) {
+				console.log(data)
+				cb(data, status, headers, config);
 			}).
 			error(function(data, status, headers, config) {
 				cb(data, status, headers, config);
 			});
 		}
 
-		function askQuestion(question) {
+		function askQuestion(question, cb) {
 			data = {question: question};
 
 			$http.post(baseUrl + '/Questions/ask/lang', data).
@@ -55,8 +65,21 @@ angular
 			});
 		}
 
+		function answerQuestion(questionId, solution, cb) {
+			var data = {"solution": solution};
+			$http.post(baseUrl + '/Questions/' + questionId + '/answer', data).
+			success(function(data, status, headers, config) {
+				cb(data, status, headers, config);
+			}).
+			error(function(data, status, headers, config) {
+				cb(data, status, headers, config);
+			});
+		}
+
 		return {
 			login: login,
-			askQuestion:askQuestion
+			askQuestion:askQuestion,
+			getCampAndUnansweredQuestions:getCampAndUnansweredQuestions,
+			answerQuestion:answerQuestion
 		};
 	}]);
