@@ -13,7 +13,13 @@ import {
 } from 'react-native';
 
 import Header from './app/components/header.js'
+import QuestionAsker from './app/components/questionAsker.js'
 import QuestionAnswerList from './app/components/questionAnswerList.js'
+
+let questionsAndAnswers = [
+  {id: 1, question: "question 1", answer: "Answer!"},
+  {id: 2, question: "question 2", answer: "A!"}
+]
 
 class RefuFaq extends Component {
   render() {
@@ -23,7 +29,8 @@ class RefuFaq extends Component {
           <Header></Header>
         </View>
         <View style={styles.body}>
-          <QuestionAnswerList></QuestionAnswerList>
+          <QuestionAsker></QuestionAsker>
+          <QuestionAnswerList list={questionsAndAnswers}></QuestionAnswerList>
         </View>
       </View>
     );

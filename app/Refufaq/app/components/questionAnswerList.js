@@ -10,7 +10,9 @@ export default class QuestionAnswerList extends Component {
   render() {
     return (
       <View>
-        <QuestionAnswer question="This is a question" answer="ANSWER"></QuestionAnswer>
+        { this.props.list.map(function(questionAndAnswer) {
+          return <QuestionAnswer key={questionAndAnswer.id} question={questionAndAnswer.question} answer={questionAndAnswer.answer}></QuestionAnswer>
+        }) }
       </View>
     )
   }
