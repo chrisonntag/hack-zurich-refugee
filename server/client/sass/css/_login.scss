@@ -1,0 +1,35 @@
+#login {
+	height: 100vh;
+	background-image: url("/img/splash.png");
+	background-size: cover;
+
+	#title {
+		margin-top: 25vh;
+
+		h1 {
+			font-size: 60px;
+		}
+	}
+
+	#input-section {
+		margin-top: 10vh;
+	}
+
+	.login-btn {
+		position: fixed;
+		left: 40vw;
+		bottom: 5vh;
+		color: white
+	}
+
+	#options {
+		padding-top: 35px;
+	}
+
+	.back-btn {
+		position: fixed;
+		left: 40vw;
+		bottom: 5vh;
+		color: white
+	}
+}

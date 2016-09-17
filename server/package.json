@@ -3,18 +3,22 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "pretest": "jshint ."
+    "pretest": "jshint .",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "build-css": "node-sass --include-path scss client/sass/css/styles.scss client/public/css/styles.css"
   },
   "dependencies": {
     "algoliasearch": "^3.18.1",
     "compression": "^1.0.3",
     "errorhandler": "^1.1.1",
     "google-translate": "^1.0.6",
+    "jade": "^1.11.0",
     "loopback": "^2.8.0",
     "loopback-boot": "^2.4.0",
     "loopback-connector-mongodb": "^1.15.2",
     "loopback-datasource-juggler": "^2.7.0",
     "loopback-ds-timestamp-mixin": "^3.4.0",
+    "node-sass": "^3.10.0",
     "serve-favicon": "^2.0.1"
   },
   "optionalDependencies": {

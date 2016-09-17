@@ -1,0 +1,35 @@
+doctype html
+html(lang='en', ng-app='app')
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+
+		link(rel='stylesheet', href='/bower/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/css/styles.css')
+
+	body
+		.container
+			main(ui-view)
+
+		script(src='bower/jquery/dist/jquery.min.js')
+		script(src='bower/bootstrap/dist/js/bootstrap.js')
+		script(src='bower/angular/angular.min.js')
+		script(src='bower/angular-resource/angular-resource.min.js')
+		script(src='bower/ui-router/release/angular-ui-router.min.js')
+		script(src='bower/modernizr/modernizr.js')
+
+
+		script(src='js/app.js')
+		script(src='js/services/api.services.js')
+		script(src='js/services/question.services.js')
+
+		script(src='js/controllers/home.controller.js')
+		script(src='js/controllers/login.controller.js')
+		script(src='js/controllers/unansweredQuestion.controller.js')
+		script(src='js/controllers/answerQuestion.controller.js')
+		script(src='js/controllers/refugee.controller.js')
+		script(src='js/controllers/ask.controller.js')
+		script(src='js/controllers/list.controller.js')
+		script(src='js/controllers/survey.controller.js')
+

@@ -1,0 +1,14 @@
+#survey {
+	select {
+		background: transparent;
+	}
+
+	.form-control {
+		background-image: url("/img/buttonBackground.png");
+		background-size: cover;
+		color: white !important;
+	}
+	.button {
+		margin-top: 20px;
+	}
+}
