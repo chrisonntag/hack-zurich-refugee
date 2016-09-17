@@ -8,7 +8,15 @@ export default class QuestionInput extends Component {
   state = { text: 'Useless Placeholder' };
 
   _submitQuestion = () => {
-    console.log("WEEEEEEE")
+    fetch('https://api.myjson.com/bins/vfne', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) => response.json())
+    .then((response) => console.log(response))
   };
 
   render() {
