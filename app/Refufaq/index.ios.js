@@ -23,7 +23,7 @@ console.log('Users unique DeviceID is: ' + DeviceID);
 class RefuFaq extends Component {
 
   state = {
-    knownUser: false
+    screen: "survey"
   }
 
   _setKnownUserState = () => {
@@ -37,7 +37,7 @@ class RefuFaq extends Component {
     .then((response) => {
       // we have seen this device before
       this.setState({
-        knownUser: true
+        knownUser: "main"
       })
     })
   };
@@ -49,11 +49,13 @@ class RefuFaq extends Component {
   render() {
     return (
       <View style={styles.container}>
-        { this.state.knownUser ?
-          <MainScreen />
-         :
-          <SurveyScreen />
-        }
+        {(() => {
+          switch (this.state.color) {
+            case "main":   return <MainScreen />;
+            case "survey": return <SurveyScreen />;
+            default:       return <MainScreen />;
+          }
+        })()}
       </View>
     );
   }
