@@ -1,8 +1,33 @@
+var googleTranslate = require('google-translate')('AIzaSyDweKpI9r-hptoy4HWa7Rci3fYrrqLvcD4');
+
 var algoliasearch = require('algoliasearch');
 var client = algoliasearch('LSDVSKQFDY', '493727bd884c9bf189b300df681b0d15');
 var index = client.initIndex('refugee_questions');
 
 module.exports = function(Question) {
+
+	Question.askInDifferentLanguage = function(data, cb) {
+		googleTranslate.translate(data.question, 'en', function(err, translation) {
+			var input = {"question": translation.translatedText}
+
+			console.log(input);
+			
+			Question.ask(input, function(err, result) {
+				cb(null, result);	
+			});
+		});
+	};
+
+	Question.remoteMethod(
+		'askInDifferentLanguage',
+		{
+			accepts: [
+				{ arg: 'data', type: 'object', http: { source: 'body' } }
+      		],
+			http: {path: '/ask/lang', verb: 'post'},
+			returns: [{arg: 'msg', type: 'object'}]
+		}
+	);
 	
 	Question.ask = function(data, cb) {
 		var question = data.question;

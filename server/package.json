@@ -9,6 +9,7 @@
     "algoliasearch": "^3.18.1",
     "compression": "^1.0.3",
     "errorhandler": "^1.1.1",
+    "google-translate": "^1.0.6",
     "loopback": "^2.8.0",
     "loopback-boot": "^2.4.0",
     "loopback-connector-mongodb": "^1.15.2",
