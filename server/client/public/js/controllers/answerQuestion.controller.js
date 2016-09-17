@@ -7,6 +7,7 @@ angular
 			$scope.submit = function() {
 				api.answerQuestion(question.id, $scope.solution, function(data, status, headers, config) {
 					console.log(data);
+					$state.go("unanswered-questions")
 				});
 			}
 		}])

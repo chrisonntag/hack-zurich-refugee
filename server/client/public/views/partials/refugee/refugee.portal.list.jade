@@ -11,4 +11,4 @@
 				p.question {{result.question}}
 			//- CURRENTLY THERE IS NO FILTER SAYING SOLUTION CAN"T BE NIL"
 			.row(style="padding-left: 10px; padding-right: 10px;")
-				p.solution {{result.solution}}
+				p.solution {{result.solution || 'No answer'}}
