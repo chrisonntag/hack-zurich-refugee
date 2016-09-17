@@ -1,21 +1,68 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 
-export default class SurveyScreen extends Component {
+var Swiper = require('react-native-swiper');
+import LandingPage from './survey/LandingPage'
+import InitQuestion from './survey/InitQuestion'
+import AgeQuestion from './survey/AgeQuestion'
+import CampQuestion from './survey/CampQuestion'
+
+class SurveyScreen extends Component {
+
   render() {
     return (
-      <View style={{
-          flex: 1,
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
+      <Swiper
+        style={styles.wrapper}
+        showsButtons={false}
+        loop={false}
       >
-        <Text style={{marginTop: 120}}> Thats the survey </Text>
-      </View>
+        <LandingPage />
+        <InitQuestion />
+        <AgeQuestion />
+        <CampQuestion />
+      </Swiper>
     )
   }
+
 }
+
+
+var styles = StyleSheet.create({
+  wrapper: {
+  },
+  landing: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB',
+  },
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB',
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
+  }
+})
+
+export default SurveyScreen
