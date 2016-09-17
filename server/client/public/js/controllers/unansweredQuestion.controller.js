@@ -8,6 +8,6 @@ angular
 
 			$scope.answerQuestion = function(question) {
 				questionService.setQuestion(question);
-				$state.go("answer-question")
+				$state.go("unanswered-questions")
 			}
 		}])
