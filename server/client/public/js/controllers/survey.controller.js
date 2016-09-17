@@ -1,6 +1,6 @@
 angular
 	.module('app')
-  .controller('surveyController', function($scope, $rootScope, $state, surveyService, api) {
+  .controller('surveyController', function($scope, $rootScope, $state, api) {
 		attachResultsToScope = function(data, status, headers, config) {
 			$scope.groups = data
 
@@ -10,12 +10,14 @@ angular
 			}
 
 			if(data.length > 0) { $scope.survey.group =  data[0].id.toString(); }
+
+			console.log($scope.survey)
 		}
 
 		api.allGroups(attachResultsToScope)
 
 		$scope.submitSurvey = function() {
-			surveyService.setSurvey($scope.survey)
+			localStorage.setItem("refufaq_user_details", JSON.stringify($scope.survey))
 			$state.go('refugee.portal.ask')
 		}
   })

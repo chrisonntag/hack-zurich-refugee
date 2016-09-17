@@ -21,5 +21,6 @@
 		select.form-control(ng-model='survey.group', name='groupSelect')
 			option(ng-repeat='group in groups' value='{{group.id}}') {{group.name}}
 
-	center
-		button.button(ng-click="submitSurvey();") Submit
+	.col-xs-12
+		center
+			button.button(ng-click='submitSurvey()') Submit
