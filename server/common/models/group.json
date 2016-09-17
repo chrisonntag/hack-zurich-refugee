@@ -11,6 +11,15 @@
   "properties": {
     "name": {
       "type": "string"
+    },
+    "city": {
+      "type":"string"
+    },
+    "country":{
+      "type":"string"
+    },
+    "capacity":{
+      "type":"number"
     }
   },
   "validations": [],
