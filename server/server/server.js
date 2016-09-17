@@ -17,6 +17,10 @@ app.start = function() {
   });
 };
 
+app.set('views', path.join(__dirname, '..', 'client/public/views'));
+app.set('view engine', 'jade');
+
+
 // start the server if `$ node server.js`
 if (require.main === module) {
   app.start();
