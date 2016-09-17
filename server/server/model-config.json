@@ -27,19 +27,19 @@
     "public": false
   },
   "Refugee": {
-    "dataSource": "mongoD",
+    "dataSource": "db",
     "public": true
   },
   "Account": {
-    "dataSource": "mongoD",
+    "dataSource": "db",
     "public": true
   },
   "Group": {
-    "dataSource": "mongoD",
+    "dataSource": "db",
     "public": true
   },
   "Question": {
-    "dataSource": "mongoD",
+    "dataSource": "db",
     "public": true
   }
 }

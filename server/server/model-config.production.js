@@ -16,19 +16,19 @@ module.exports = {
     "public": true
   },
   "Refugee": {
-    "dataSource": "db",
+    "dataSource": "mongoD",
     "public": true
   },
   "Account": {
-    "dataSource": "db",
+    "dataSource": "mongoD",
     "public": true
   },
   "Group": {
-    "dataSource": "db",
+    "dataSource": "mongoD",
     "public": true
   },
   "Question": {
-    "dataSource": "db",
+    "dataSource": "mongoD",
     "public": true
   }
 };
