@@ -1,8 +1,0 @@
-form(ng-submit='submitQuestion()')
-	.form-group
-		input#search.form-control(type='text', ng-model="question", placeholder='Type your question here')
-		button.button.btn-sm(type='submit') Search
-
-// IF THERE IS NO RESULT WE NEED TO SHOW THE USER AND TELL THEM WE"VE SUBMITTED IT TO BE ANSWERED"
-h3 {{result.question}}
-p {{result.solution}}
