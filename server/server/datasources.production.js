@@ -4,7 +4,7 @@ module.exports = {
     "port": 27017,
     "database": "zurich-hack-refugee",
     "username": "test",
-    "password": "123",
+    "password": "73AFWfa39",
     "name": "mongoD",
     "connector": "mongodb"
   }

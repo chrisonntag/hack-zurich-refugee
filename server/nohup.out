@@ -1,0 +1,15 @@
+Browse your REST API at http://0.0.0.0:3000/explorer
+Web server listening at: http://0.0.0.0:3000/
+writting sass...
+sass done
+Sat, 17 Sep 2016 23:05:38 GMT loopback deprecated Routes "/methods" and "/models" are considered dangerous and should not be used.
+Disable them by setting "legacyExplorer=false" in "server/config.json" or via "app.set()". at node_modules/loopback/node_modules/express/lib/router/layer.js:95:5
+Sat, 17 Sep 2016 23:05:38 GMT loopback deprecated loopback#context middleware is deprecated. See https://docs.strongloop.com/display/APIC/Using%20current%20context for more details. at node_modules/loopback/server/middleware/rest.js:60:32
+{ question: 'Where is the doctor digstebij',
+  objectID: '52427401',
+  _highlightResult: 
+   { question: 
+      { value: '<em>Where</em> <em>is</em> <em>the</em> <em>doctor</em> digstebij',
+        matchLevel: 'full',
+        fullyHighlighted: false,
+        matchedWords: [Object] } } }
