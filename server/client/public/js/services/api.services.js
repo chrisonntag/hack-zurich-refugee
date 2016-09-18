@@ -2,7 +2,7 @@ angular
 	.module('app')
 	.factory('api', ['$rootScope', '$http', '$q', '$state', "surveyService", function($rootScope, $http, $q, state, surveyService) {
 
-		var baseUrl = "http://localhost:3000/api";
+		var baseUrl = "http://139.59.183.242:3000/api";
 
 		var accessToken = '';
 		var accountId;
