@@ -18,7 +18,9 @@ export default class SurveyScreen extends Component {
         showsButtons={false}
         loop={false}
       >
-        <LandingSite />
+        <LandingSite
+          nav = {this.props.nav}
+        />
         <InitQuestion />
         <AgeQuestion />
         <CampQuestion

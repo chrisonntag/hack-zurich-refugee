@@ -11,14 +11,9 @@ import Link from '../components/link'
 
 export default class Header extends Component {
   _renderLoginSite = () => {
-    return(
-      <Navigator
-        initialRoute={{ title: 'RefuFAQ', index: 0 }}
-        renderScene={(route, navigator) => {
-          return <MainScreen title={route.title} />
-        }}
-      />
-    );
+    this.props.nav.push({
+      id: 'volunteer'
+    })
   }
 
   render() {

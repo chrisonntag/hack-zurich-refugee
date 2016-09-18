@@ -7,6 +7,7 @@ import {
 
 import MainScreen from './MainScreen'
 import SurveyScreen from './SurveyScreen'
+import VolunteerMainScreen from './volunteer/VolunteerMainScreen'
 
 var DeviceInfo = require('react-native-device-info');
 
@@ -58,7 +59,9 @@ export default class HomeScreen extends Component {
       case 'survey':
         return (<SurveyScreen nav={navigator} title="SurveyScreen"/>);
       case 'main':
-        return (<MainScreen nav={navigator} title="MainScreen" />);
+        return (<MainScreen nav={navigator} title="MainScreen" {...route.passProps} />);
+      case 'volunteer':
+        return (<VolunteerMainScreen nav={navigator} title="VolunteerScreen" />);
     }
   }
 }

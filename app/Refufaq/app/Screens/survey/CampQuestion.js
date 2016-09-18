@@ -26,7 +26,10 @@ export default class CampQuestion extends Component {
 
   _renderMainScreen = () => {
     this.props.nav.push({
-      id: 'main'
+      id: 'main',
+      passProps: {
+        groupId: this.state.camp
+      }
     })
   }
 
