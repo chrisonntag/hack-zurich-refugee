@@ -4,12 +4,10 @@ import {
   View
 } from 'react-native';
 
-export default class Answer extends Component {
+export default class AskQuestionView extends Component {
   render() {
     return (
-      <View>
-        <Text> {this.props.answer} </Text>
-      </View>
+      <Text>So your a volunteer dude ...?</Text>
     )
   }
 }
