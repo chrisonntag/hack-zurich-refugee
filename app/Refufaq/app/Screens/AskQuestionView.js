@@ -4,7 +4,8 @@ import {
   View,
   StyleSheet,
   Dimensions,
-  TextInput
+  TextInput,
+  TouchableHighlight
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -49,7 +50,20 @@ export default class AskQuestionView extends Component {
         console.log(err);
       })
      .done();
+  }
 
+  _getBack = () => {
+    this.props.nav.pop()
+  }
+
+  componentDidMount = () => {
+    if(this.props.groupId < 0) {
+      this.setState({
+        answer: "You have to specify the camp you are living in!"
+      })
+
+      setTimeout(this._getBack, 3000);
+    }
   }
 
   render() {
@@ -69,6 +83,9 @@ export default class AskQuestionView extends Component {
           <View style={styles.AnswerBox}>
             <Text style={styles.text}>{this.state.answer}</Text>
           </View>
+          <TouchableHighlight style={styles.BackButton} onPress={() => this.props.nav.push({id: 'survey'})}>
+            <Text style={styles.text}>Take the survey again</Text>
+          </TouchableHighlight>
         </View>
       </LinearGradient>
     )
@@ -113,5 +130,9 @@ var styles = StyleSheet.create({
     paddingRight: 10,
     paddingBottom: 30,
     backgroundColor: 'rgba(0, 0, 0, 0.2)'
+  },
+  BackButton: {
+    marginLeft: -30,
+    marginTop: 20
   }
 })

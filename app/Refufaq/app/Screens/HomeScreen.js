@@ -24,6 +24,7 @@ export default class HomeScreen extends Component {
   }
 
   _setKnownUserState = () => {
+    // @TODO check if this device was registered before
     fetch('http://localhost:3000/api/Refugees/?deviceId=' + DeviceID, {
       method: 'GET',
       headers: {

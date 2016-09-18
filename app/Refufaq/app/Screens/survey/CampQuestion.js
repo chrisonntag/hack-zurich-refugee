@@ -21,7 +21,7 @@ let CAMPS = [];
 export default class CampQuestion extends Component {
 
   state = {
-    camp: ""
+    camp: 1
   }
 
   _renderMainScreen = () => {

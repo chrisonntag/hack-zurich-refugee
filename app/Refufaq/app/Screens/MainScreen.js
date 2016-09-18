@@ -31,7 +31,7 @@ export default class MainScreen extends Component {
                   selectedTab: 'ask',
               });
           }}>
-            <AskQuestionView groupId={this.props.groupId} />
+            <AskQuestionView nav={this.props.nav} groupId={this.props.groupId} />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           selected={this.state.selectedTab === 'popular'}

@@ -9,8 +9,9 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 
+var unanswered_questions = [];
 
-export default class AskQuestionView extends Component {
+export default class VolunteerMainScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -19,6 +20,38 @@ export default class AskQuestionView extends Component {
   }
 
 
+  _renderUnanswered = () => {
+    fetch('http://localhost:3000/api/Questions', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) =>
+      {
+        return(<Text style={styles.text}>{response.json()}</Text>); // << This is the problem
+      })
+    .then((responseData) => { // responseData = undefined
+       return(<Text style={styles.text}>{responseData}</Text>);
+     })
+    .then((data) => {
+      for(var i=0;i<data.length;i++) {
+        unanswered_questions.push({
+          question: data[i].question,
+          id: data[i].id,
+          accountId: data[i].accountId,
+          groupId: data[i].groupId
+        })
+      }
+      return(<Text style={styles.text}>{unanswered_questions[0].question}</Text>);
+     })
+     .catch(function(err) {
+        console.log(err);
+        return(<Text style={styles.text}>{err.status}</Text>);
+      })
+     .done();
+  }
 
   render() {
     return (
@@ -29,7 +62,8 @@ export default class AskQuestionView extends Component {
 
         <View style={styles.body}>
 
-          <Text style={styles.text}>There are no unanswered questions yet</Text>
+          {this._renderUnanswered}
+
         </View>
       </LinearGradient>
     )

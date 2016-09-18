@@ -19,7 +19,10 @@ export default class InitQuestion extends Component {
 
   _handleSkip = () => {
     this.props.nav.push({
-      id: 'main'
+      id: 'main',
+      passProps: {
+        groupId: -1
+      }
     })
   }
 
