@@ -20,8 +20,8 @@ export default class Header extends Component {
     return (
       <LinearGradient start={[0.0, 0.25]} end={[0.5, 1.0]} locations={[0,1.0]} colors={['#9180EA', '#DD7F87']} style={styles.linearGradient}>
         <View style={styles.body}>
-          <Text style={styles.title}>RefuFAQ</Text>
-          <Text style={styles.text}>Answering your questions</Text>
+          <Text style={styles.title}>RefHelp</Text>
+          <Text style={styles.text}>Answer one click away</Text>
         </View>
 
         <Link style={styles.loginLink} onClick={this._renderLoginSite} value="Group Manager Login" />
