@@ -78,10 +78,10 @@ angular
 		}
 
 		function latestQuestions(cb) {
-			// groupId = surveyService.getSurvey().group
-			// console.log(groupId)
-			// var filter = '{"limit": "10", "where":{"groupId": "' + groupId.toString() + '"}}';
-			// console.log(filter)
+			groupId = surveyService.getSurvey().group
+			console.log(groupId)
+			var filter = '{"limit": "10", "where":{"groupId": "' + groupId.toString() + '"}}';
+			console.log(filter)
 
 			$http.get(baseUrl + '/Questions')
 			.success(function(data, status, headers, config) {
