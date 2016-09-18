@@ -18,7 +18,9 @@ export default class InitQuestion extends Component {
   }
 
   _handleSkip = () => {
-    console.log("skipped this question");
+    this.props.nav.push({
+      id: 'main'
+    })
   }
 
   render() {

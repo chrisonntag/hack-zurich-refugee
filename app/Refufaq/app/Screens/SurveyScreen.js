@@ -21,7 +21,9 @@ export default class SurveyScreen extends Component {
         <LandingSite
           nav = {this.props.nav}
         />
-        <InitQuestion />
+        <InitQuestion
+          nav = {this.props.nav}
+        />
         <AgeQuestion />
         <CampQuestion
           deviceId={this.props.deviceId}
