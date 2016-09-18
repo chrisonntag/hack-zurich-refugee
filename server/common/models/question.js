@@ -42,6 +42,8 @@ module.exports = function(Question) {
 		var question = data.question;
 		var groupId = data.groupId;
 
+		console.log("group id sent " + groupId)
+
 		if (!question || !groupId) {
 			cb(null, {"result": "missing fields"})
 			return
@@ -49,11 +51,16 @@ module.exports = function(Question) {
 		
 
 		index.search(question, function(err, results) {
-			if (results.hits[0]) {
-				console.log(results.hits[0]);
+			console.log("- - - -")
+			console.log(results);
+			results = returnSearchesWithCorrectGroupId(groupId, results);
+			console.log(results);
+			console.log("- - - -")
+
+			if (results.hits.length > 0) {
 				if (results.hits[0].solution) {
 					// solution available
-					cb(null, results.hits[0])	
+					cb(null, results.hits[0])
 				} else {
 					// asked before and no solution
 					cb(null, {"result": "question asked no reply"})
@@ -62,7 +69,11 @@ module.exports = function(Question) {
 			} else {
 				// create in algo and create question
 				var data = [
-				{"question": question}];
+					{
+						"question": question,
+						"groupId": groupId
+					}
+				];
 
 				index.addObjects(data, function(err, content) {
 
@@ -81,6 +92,23 @@ module.exports = function(Question) {
 		})
 	};
 
+	function returnSearchesWithCorrectGroupId(groupId, searchResults) {
+		console.log("in search" +  searchResults.hits.length)
+		console.log(searchResults.hits)
+		var hits = searchResults.hits
+		console.log(hits);
+
+		var newSearchResults = searchResults;
+		newSearchResults.hits = [];
+
+		for (var i in hits) {
+			if (groupId == hits[i].groupId) {newSearchResults.hits.push(hits[i]);}
+		}
+		
+		console.log("exit in search")
+		return newSearchResults;
+	}
+
 	Question.remoteMethod(
 		'ask',
 		{
@@ -97,10 +125,12 @@ module.exports = function(Question) {
 			cb(null, {"result": "please provide solution"});
 		} else {
 			Question.findById(id, function(err, question) {
+				console.log(question)
 				index.saveObject({
 					solution: data.solution,
 					question: question.question,
-					objectID: question.algoliaId
+					objectID: question.algoliaId,
+					groupId: question.groupId
 				}, function(err, content) {
 					if (err) {
 						cb(null, {"result": "Error updating Algolia model."});
