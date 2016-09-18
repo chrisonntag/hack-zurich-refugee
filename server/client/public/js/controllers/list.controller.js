@@ -1,9 +1,9 @@
 angular
-	.module('app')
+.module('app')
   .controller('listController', function($scope, $rootScope, $state, api, surveyService) {
-		group = JSON.parse(localStorage.getItem("refufaq_user_details")).group
 
 		var groupdId = surveyService.getSurvey().group
+
 		$scope.results = [];
 
 		assignResultsToScope = function(data, status, headers, config) {
